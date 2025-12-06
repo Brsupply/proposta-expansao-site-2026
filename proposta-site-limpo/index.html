@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plano de Negócios: Expansão Industrial e Ociosidade Zero</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <style>
+            /* Variáveis CSS (Paleta de Cores para Segurança e Inovação) */
+        :root {
+            --primary-dark: #004466; /* Azul Petróleo Escuro (Segurança, Autoridade) */
+            --secondary-blue: #0099CC; /* Azul Ciano Profundo (Inovação, Excelência) */
+            --accent-orange: #FF7700; /* Laranja Vibrante (Destaque, Ação) */
+            --success-green: #339966; /* Verde Sólido (Confiança em Resultados) */
+            --text-color: #333;
+            --light-bg: #F0F4F7; /* Fundo Claro Acinzentado (Profissional) */
+            --footer-bg: #34495E; /* NOVO: Cinza-Azulado Sóbrio para Footer */
+        }
+
+        /* Estilos Gerais */
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: var(--light-bg); color: var(--text-color); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 60px 0; }
+        h1, h2, h3 { color: var(--primary-dark); }
+        h2 { font-size: 2.5em; text-align: center; margin-bottom: 10px; font-weight: 800; }
+        .section-subtitle { text-align: center; color: #666; font-size: 1.2em; max-width: 800px; margin: 0 auto 50px; }
+
+        /* 1. HEADER (Layout 90vh, Imagem Lateral, Ajustes Tipografia) */
+        header { 
+            background-color: var(--primary-dark); 
+            color: white; 
+            padding: 0;
+            height: 90vh; 
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-content {
+            flex: 1;
+            padding: 80px 20px;
+            text-align: left;
+            max-width: 60%; 
+            z-index: 10;
+        }
+        
+        .header-icon { 
+            font-size: 4.5em; 
+            color: var(--accent-orange); 
+            margin-bottom: 25px; 
+            display: block;
+        }
+        .header-content h1 { 
+            font-size: 3.2em; 
+            margin-bottom: 15px; 
+            color: white; 
+            line-height: 1.1;
+        }
+        .header-content p { font-size: 1.3em; color: #E0E0E0; max-width: 700px; margin: 0; }
+        
+        .header-image-area {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 40%; 
+            background: url('https://images.unsplash.com/photo-1596701886846-3c22b9b73d2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80') no-repeat center center;
+            background-size: cover;
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%); 
+            z-index: 5;
+            filter: brightness(0.6) grayscale(0.2); 
+            position: relative; 
+        }
+
+        .header-image-area::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 153, 204, 0.2); 
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Crect fill='%23000000' width='100' height='100'/%3E%3Cpath d='M14 100L50 64L86 100L14 100zM0 86L50 36L100 86L0 86zM14 0L50 36L86 0L14 0zM0 14L50 64L100 14L0 14z' fill-opacity='0.05' fill='%23ffffff'/%3E%3C/svg%3E");
+            opacity: 0.8;
+            mix-blend-mode: soft-light;
+            z-index: 10;
+        }
+        
+        @media (max-width: 1024px) {
+            header { height: auto; min-height: 400px; }
+            .header-content { max-width: 100%; text-align: center; padding: 60px 20px; }
+            .header-image-area { display: none; } 
+        }
+        
+        /* 2. DORES (6 CARDS) */
+        .card-item { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            text-align: center; 
+            min-height: 250px; 
+            display: flex; flex-direction: column; justify-content: flex-start; 
+            transition: all 0.3s; 
+            border: 1px solid #e0e0e0;
+        }
+        .card-item:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            border-color: var(--secondary-blue);
+        }
+        .card-item i { font-size: 2.8em; color: var(--accent-orange); margin-bottom: 15px; }
+        .card-item h3 { font-size: 1.5em; margin-top: 0; color: var(--primary-dark); font-weight: 700; }
+        .card-item p { font-size: 1.05em; line-height: 1.5; text-align: left; }
+        .card-item .hashtag { 
+            display: block; 
+            margin-top: auto; 
+            color: #999; 
+            font-size: 0.85em;
+            font-style: italic;
+        }
+        .swiper-button-next, .swiper-button-prev { color: var(--primary-dark) !important; top: 50%; }
+
+
+        /* 3. OPORTUNIDADES (6 BLOCOS NOVOS - VISUAL ENGRENAGEM MAIS FORTE) */
+        .strategy-intro { text-align: center; max-width: 900px; margin: 0 auto 50px; font-size: 1.2em; color: white; }
+        
+        .strategy-grid-6 { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            margin-top: 50px; 
+        }
+        .strategy-card { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 8px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2); 
+            text-align: left; 
+            color: var(--text-color); 
+            min-height: 200px;
+            
+            position: relative;
+            overflow: hidden;
+            
+            border: 1px solid #005A87; 
+            transition: transform 0.3s ease-out;
+            z-index: 10;
+        }
+        .strategy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Efeito de Engrenagem de Fundo (Depth) - MAIS FORTE */
+        .strategy-card::before {
+            content: '\f013'; /* Font Awesome Gear Icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%) rotate(0deg); 
+            font-size: 15em; 
+            color: rgba(0, 0, 0, 0.03); 
+            z-index: 1;
+            transition: transform 0.5s ease-out; 
+            pointer-events: none; 
+        }
+        
+        .strategy-card:hover::before {
+            transform: translate(-50%, -50%) rotate(30deg); 
+            color: rgba(0, 0, 0, 0.05); 
+        }
+
+        .strategy-card h4, .strategy-card p {
+            position: relative; 
+            z-index: 2;
+        }
+        
+        /* Cores das Bordas Superiores para 6 Cards */
+        .strategy-card:nth-child(1) { border-top: 5px solid var(--primary-dark); }
+        .strategy-card:nth-child(2) { border-top: 5px solid var(--accent-orange); }
+        .strategy-card:nth-child(3) { border-top: 5px solid var(--success-green); }
+        .strategy-card:nth-child(4) { border-top: 5px solid var(--secondary-blue); }
+        .strategy-card:nth-child(5) { border-top: 5px solid var(--accent-orange); }
+        .strategy-card:nth-child(6) { border-top: 5px solid var(--success-green); }
+
+
+        .strategy-card h4 {
+            font-size: 1.2em;
+            color: var(--primary-dark);
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .strategy-card p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        /* Remove o estilo das hashtags */
+        .tag-destaque-fixed { display: none; } 
+
+
+        /* 5. CAPACIDADE OCIOSA (Antiga Seção 4 - Agora é 5) */
+        .infographic-ociosity { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 40px; }
+        .ociosity-gauge { width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, white 60%, transparent 60%), conic-gradient(var(--accent-orange) 60%, var(--secondary-blue) 0%); display: flex; align-items: center; justify-content: center; position: relative; border: 5px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .ociosity-gauge .label { font-size: 2em; font-weight: 800; color: var(--primary-dark); background: white; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; }
+        .ociosity-text { max-width: 400px; font-size: 1.2em; font-weight: 500; }
+
+        /* 4. REINVENÇÃO E CHECKLIST (Antiga Seção 5 - Agora é 4) - Melhoria de Design */
+        .reinvention-definition { background: white; padding: 25px; border-left: 5px solid var(--secondary-blue); margin-bottom: 40px; border-radius: 6px; font-style: italic; }
+        
+        .case-study-grid { 
+            display: flex; 
+            gap: 30px; /* Aumento o gap */
+            margin-bottom: 40px; 
+        }
+        
+        /* NOVO ESTILO CASE CARD */
+        .case-card { 
+            flex: 1; 
+            background: white; 
+            padding: 30px; /* Aumento o padding */
+            border-radius: 10px; /* Mais arredondado */
+            box-shadow: 0 5px 20px rgba(0, 153, 204, 0.15); /* Sombra azul para inovação */
+            text-align: left;
+            min-height: 250px; 
+            display: flex; 
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            
+            border-top: 5px solid var(--secondary-blue); /* Borda superior forte */
+            transition: all 0.3s ease-out; 
+        }
+        .case-card:hover {
+            transform: translateY(-5px); /* Efeito de lift */
+            box-shadow: 0 10px 30px rgba(0, 153, 204, 0.3); /* Sombra de destaque no hover */
+        }
+        .case-card h3 { 
+            font-size: 1.4em; 
+            color: var(--primary-dark); 
+            border-bottom: 2px solid var(--light-bg); /* Linha separadora sutil */
+            padding-bottom: 10px;
+            margin-top: 0;
+            font-weight: 700;
+        }
+        .case-card i { 
+            margin-right: 10px; 
+            font-size: 1.4em; 
+            color: var(--secondary-blue); /* Ícone no título em azul de inovação */
+        }
+        /* Fim do NOVO ESTILO CASE CARD */
+        
+        .case-card ul { list-style: none; padding: 0; margin-top: 15px; }
+        
+        /* Estilos para os ícones */
+        .case-card li { margin-bottom: 8px; font-size: 0.95em; line-height: 1.4; }
+        .case-card li i { margin-right: 8px; color: var(--accent-orange); } /* Alavancagem em Laranja */
+        .case-card li .result-icon { color: var(--success-green); font-weight: 700; font-size: 1.1em; } /* Resultado em Verde */
+        
+
+        .checklist-table { width: 100%; border-collapse: collapse; margin-top: 30px; font-size: 0.95em; }
+        .checklist-table caption { font-size: 1.4em; font-weight: 700; color: var(--primary-dark); margin-bottom: 15px; }
+        
+        /* AJUSTE: Aumento de Padding e Line-Height para MAIOR ESPAÇAMENTO na tabela */
+        .checklist-table th, .checklist-table td { 
+            padding: 25px; /* Aumenta o espaçamento interno da célula */
+            border: 1px solid #ddd; 
+            text-align: left; 
+            line-height: 1.8; /* Aumenta o espaçamento entre as linhas de texto DENTRO da célula */
+        }
+
+        .checklist-table th { background-color: var(--primary-dark); color: white; font-weight: 600; }
+        .checklist-table tr:nth-child(even) { background-color: #f9f9f9; }
+
+        /* 6. PILARES DE AÇÃO (NOVO DESIGN 3D + GEAR EFFECT) */
+        #pilares-acao {
+            background-color: var(--light-bg); 
+            padding: 80px 0;
+        }
+        
+        /* Remove o Swiper da seção Pilares, mas adiciona a grid */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+            perspective: 1200px; /* Enable 3D perspective */
+        }
+
+        .pillar-card-3d {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            transform: perspective(1000px) rotateX(2deg); 
+        }
+
+        .pillar-card-3d:hover {
+            transform: perspective(1000px) rotateX(0deg) translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Gear/Background Effect */
+        .pillar-card-3d::before {
+            content: '\f013'; /* Gear icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8em;
+            color: var(--secondary-blue);
+            opacity: 0.05;
+            z-index: 1;
+            transform: rotate(0deg);
+            transition: transform 1s ease-in-out;
+        }
+
+        .pillar-card-3d:hover::before {
+            transform: rotate(360deg);
+            opacity: 0.1;
+        }
+
+        .pillar-card-3d h3 {
+            position: relative;
+            z-index: 2;
+            font-size: 1.6em;
+            color: var(--primary-dark);
+            border-bottom: 2px solid #EEE;
+            padding-bottom: 10px;
+        }
+
+        .pillar-card-3d p {
+            position: relative;
+            z-index: 2;
+            font-size: 1.05em;
+            line-height: 1.5;
+        }
+
+        .pillar-card-3d ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pillar-card-3d ul li { 
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-size: 1em;
+            display: flex; 
+            align-items: center;
+        }
+
+        /* Ajuste do ícone de check (menor e proporcional) */
+        .pillar-card-3d li i { 
+            font-size: 0.9em; /* Ícone menor */
+            color: var(--success-green); /* Cor verde de sucesso */
+            margin-right: 8px;
+            flex-shrink: 0; 
+        }
+
+        /* Cores das Bordas Superiores para cada Pilar */
+        .pillar-card-3d:nth-child(1) { border-top: 6px solid var(--secondary-blue); }
+        .pillar-card-3d:nth-child(2) { border-top: 6px solid var(--accent-orange); }
+        .pillar-card-3d:nth-child(3) { border-top: 6px solid var(--success-green); }
+
+        /* 7. PERFIL E MÉTRICAS (NOVO FUNDO SÓBRIO) */
+        #perfil-cristiano {
+            background-color: #DDE7ED; /* Novo fundo: Azul-cinza mais sóbrio */ 
+        }
+        .profile-content-grid { 
+            display: grid; 
+            grid-template-columns: 300px 1fr; 
+            gap: 40px; 
+            align-items: flex-start; 
+            margin-top: 40px; 
+        }
+        
+        /* NOVO CSS: Estilização da Imagem do Perfil */
+        .profile-sidebar .cristiano-img {
+            width: 100%; /* Ajusta à largura da sidebar */
+            max-width: 250px; 
+            height: auto;
+            border-radius: 50%; /* Torna a imagem redonda */
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid white; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .profile-sidebar blockquote { 
+            border-left: 3px solid var(--accent-orange); 
+            padding-left: 15px; 
+            margin: 20px 0; 
+            font-style: italic; 
+            color: #666; 
+            text-align: left; 
+        }
+        
+        /* NOVO CSS: Caixa de Perfil Pessoal (Características, Hobbys, etc.) */
+        .personal-profile-box {
+            background-color: white; /* Fundo branco para contraste */
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 30px; /* Separar do bloco de citação */
+            border-left: 5px solid var(--secondary-blue); /* Borda lateral azul (Inovação) */
+        }
+
+        .personal-profile-box h4 {
+            font-size: 1.2em;
+            color: var(--primary-dark);
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .personal-profile-item {
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .personal-profile-item strong {
+            color: var(--accent-orange);
+            display: block;
+            margin-bottom: 3px;
+            font-size: 0.95em;
+        }
+
+        .personal-profile-item p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #555;
+        }
+        
+        /* Estilização das Métricas Chave (KPIs) */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .metric-card {
+            background: white;
+            padding: 15px 10px;
+            border-radius: 6px;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-dark);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .metric-card .value {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: var(--accent-orange);
+            display: block;
+        }
+        .metric-card .label {
+            font-size: 0.9em;
+            color: #666;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        /* Estilização do Case de Expansão */
+        .expansion-case {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .case-kpi {
+            background: white;
+            padding: 15px 20px;
+            border-left: 4px solid var(--accent-orange);
+            flex: 1;
+        }
+        .case-kpi .value {
+            font-size: 1.6em;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: block;
+        }
+        .case-kpi .label {
+            font-size: 0.9em;
+            color: var(--text-color);
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* NOVO CSS: Metodologia Flow (Roadmap) */
+        .methodology-flow {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding: 20px 0;
+            border-top: 2px solid var(--secondary-blue);
+            border-bottom: 2px solid var(--secondary-blue);
+            background-color: white; /* Fundo branco para contraste */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        .flow-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            padding: 0 15px;
+        }
+        .flow-step .number {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: white;
+            background: var(--secondary-blue);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            border: 3px solid var(--secondary-blue);
+        }
+        .flow-step:not(:last-child)::after {
+            content: '▶';
+            position: absolute;
+            right: -15px;
+            top: 15px;
+            color: var(--accent-orange);
+            font-size: 0.8em;
+        }
+        .flow-step h5 {
+            font-size: 1em;
+            color: var(--primary-dark);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* NOVO CSS: Core Competencies e Tech Block */
+        .core-competencies {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid var(--primary-dark);
+        }
+        .core-competencies h4 {
+            color: var(--primary-dark);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--accent-orange);
+            padding-bottom: 5px;
+        }
+        .core-competencies ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .core-competencies li {
+            background-color: white;
+            padding: 12px 15px;
+            border-left: 3px solid var(--success-green);
+            font-size: 0.95em;
+            font-weight: 500;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .tech-focus {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: var(--primary-dark);
+            color: white;
+            border-radius: 8px;
+            border-bottom: 5px solid var(--accent-orange);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .tech-focus h4 {
+            color: var(--accent-orange);
+            font-size: 1.4em;
+            margin-top: 0;
+            font-weight: 700;
+        }
+        .tech-focus p {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #E0E0E0;
+        }
+
+
+        /* 8. ESTILOS PARA O NOVO ROADMAP DE 90 DIAS (usando section id="roadmap") */
+        #roadmap {
+            background-color: var(--primary-dark);
+            /* **AJUSTE APLICADO:** Aumento de 50% na separação inferior */
+            padding: 80px 0 120px 0; 
+        }
+        .roadmap-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            margin-top: 50px; 
+            margin-bottom: 50px;
+        }
+        .phase-card {
+            background: white;
+            color: var(--text-color);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .phase-card:hover { transform: translateY(-5px); }
+        .phase-card h3 {
+            font-size: 1.4em;
+            color: var(--primary-dark);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #EEE;
+            font-weight: 800;
+        }
+        .phase-card h3 span { 
+            font-size: 0.8em; 
+            color: var(--secondary-blue); 
+            display: block; 
+            font-weight: 500;
+        }
+        .phase-card strong {
+            display: block;
+            margin-top: 15px;
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+        .deliverable {
+            background-color: #f7f7f7;
+            border-left: 4px solid var(--success-green);
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 600;
+            color: #444;
+        }
+        .immediate-action {
+            max-width: 900px;
+            margin: 40px auto 0;
+            padding: 25px;
+            background-color: #FFF3E0; 
+            border-radius: 8px;
+            border: 2px solid var(--accent-orange);
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--primary-dark);
+            text-align: left;
+        }
+        .immediate-action strong { color: var(--accent-orange); }
+        
+        /* NOVO CSS ADICIONADO PARA CORRIGIR AMBIGUIDADE DO BOTÃO FINAL */
+        .decision-box {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 5px solid var(--accent-orange);
+        }
+        .decision-box h3 { /* Estilo para o novo h3 do CTA */
+            color: var(--primary-dark);
+            font-size: 2em;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .cta-button { /* Ajustando o estilo do botão para melhor CTA */
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.3em;
+            background-color: var(--success-green); 
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #2D8656; /* Verde mais escuro no hover */
+        }
+        /* FIM NOVO CSS */
+
+
+        /* ==================================================================== */
+/* 8. MEDIA QUERIES (RESPONSIVIDADE MÓVEL) - NOVO E CORRIGIDO */
+
+
+/* ==================================================================== */
+
+/* Ajuste fino para tablets e telas médias quebrarem de 3 para 2 colunas */
+@media (max-width: 1200px) {
+    .strategy-grid-6, .roadmap-grid, .pillar-grid { 
+        grid-template-columns: repeat(2, 1fr) !important; 
+    }
+}
+
+/* Regras para Celulares (max-width: 768px ou menor) */
+@media (max-width: 768px) {
+    /* AJUSTE CRUCIAL: Header Flexbox para Coluna */
+    header .container {
+        flex-direction: column; /* Coloca o conteúdo um abaixo do outro */
+        height: auto !important; /* Remove a altura fixa */
+        text-align: center; 
+    }
+    
+    /* Demais ajustes para telas pequenas */
+    section { padding: 40px 0; }
+    h2 { font-size: 1.8em; }
+
+    .strategy-grid-6, .roadmap-grid, .pillar-grid { 
+        grid-template-columns: 1fr !important; /* Força 1 coluna em todas as grids */
+        gap: 20px; 
+    }
+    
+    .case-study-grid, .infographic-ociosity { 
+        flex-direction: column; /* Coloca os cards e infográficos um abaixo do outro */
+        gap: 20px;
+    }
+    
+    .profile-content-grid { 
+        grid-template-columns: 1fr; /* Perfil em 1 coluna */
+        gap: 30px; 
+        text-align: center;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr); /* Mantém 2 colunas para KPIs */
+        gap: 15px;
+    }
+    
+    .methodology-flow {
+        flex-direction: column; /* Flow em Coluna */
+        padding: 20px;
+    }
+    .flow-step:not(:last-child)::after {
+        content: '▼'; /* Seta muda para baixo */
+        right: auto;
+        bottom: -15px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .core-competencies ul { grid-template-columns: 1fr; }
+    
+    .checklist-table th, .checklist-table td { 
+        display: block; 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+    /* Ajuste para o botão CTA final ser responsivo */
+    .cta-button { font-size: 1.2em; padding: 12px 20px; }
+}
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="container" style="display: flex; height: 100%; align-items: center;">
+            <div class="header-content">
+                <i class="fas fa-industry header-icon"></i>
+                <h1>ALINHAMENTO ESTRATÉGICO EXPANSÃO SUSTENTÁVEL</h1>
+                <p>A Proposta de Valor para a Metalúrgica Maximizando a Eficiência do Ativo Fabril no Vale do Sinos e Projetando o Crescimento Consistente 2026.</p>
+            </div>
+            <div class="header-image-area">
+                </div>
+        </div>
+    </header>
+
+    <section id="dores">
+        <div class="container">
+            <h2>O Risco Estratégico da Inação: Mudar é Imperativo</h2>
+            <p class="section-subtitle">O custo de não agir é maior do que o custo de tentar. Precisamos atacar a ociosidade e a vulnerabilidade setorial agora.</p>
+            
+            <div class="swiper-container pain-points-swiper" style="padding: 0 40px;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="card-item">
+                            <i class="fas fa-handshake-slash"></i>
+                            <h3>Vulnerabilidade Setorial e a Erosão da Margem</h3>
+                            <p>Foco excessivo em um setor volátil. A dependência única do setor de Calçados compromete o valuation de longo prazo e a estabilidade. <strong>(Risco de Commoditização)</strong></p>
+                            <span class="hashtag">#FocoExcessivo</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-item">
+                            <i class="fas fa-hourglass-half"></i>
+                            <h3>Ociosidade é o Custo Fixo Mais Caro</h3>
+                            <p>A subutilização da nossa capacidade fabril é o maior desperdício de capital de giro. É um passivo que se desvaloriza, exigindo Expansão Asset-Light imediata.</p>
+                            <span class="hashtag">#CapitalParado</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-item">
+                            <i class="fas fa-eye-slash"></i>
+                            <h3>Miopia Estratégica: O Efeito Blockbuster</h3>
+                            <p>Empresas gigantes como a Kodak (que inventou a câmera digital, mas não mudou) demonstram que o risco não é a concorrência, mas sim a invenção lenta e gradual da obsolescência.</p>
+                            <span class="hashtag">#RiscoDeIrrelevância</span>
+                        </div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div class="card-item">
+                            <i class="fas fa-brain"></i>
+                            <h3>Desvalorização do Ativo Intangível (Know-How)</h3>
+                            <p>Se o conhecimento técnico e a engenharia são usados apenas em um setor em retração, o know-how da equipe se atrofia. Estamos perdendo a chance de nos tornarmos um Polo de Excelência.</p>
+                            <span class="hashtag">#ConhecimentoPerdido</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-item">
+                            <i class="fas fa-user-times"></i>
+                            <h3>Fuga de Talentos e Perda de Inovação</h3>
+                            <p>Sem projetos de expansão e diversificação de alto valor, a empresa perde sua capacidade de atrair e reter os melhores engenheiros e líderes. A inação se traduz em um custo de recrutamento insustentável no futuro.</p>
+                            <span class="hashtag">#TalentoEmRisco</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="card-item">
+                            <i class="fas fa-clock"></i>
+                            <h3>O Vazio de Mercado: Perder o Timing</h3>
+                            <p>A oportunidade de atacar setores como Saneamento ou Energia Renovável é finita. Se não utilizarmos agora nosso parque fabril para preencher este vazio, um concorrente mais ágil o fará, fechando a porta para nosso futuro crescimento.</p>
+                            <span class="hashtag">#PerdaDeOportunidade</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-button-prev pain-points-prev"></div>
+                <div class="swiper-button-next pain-points-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oportunidades" style="background-color: var(--secondary-blue); padding: 80px 0;">
+        <div class="container" style="color: white;">
+            <h2 style="color: white;">A Estratégia B2B Definitiva: Como Convergir Expansão e Retorno sobre o Capital para uma Nova Curva de Crescimento</h2>
+            <p class="section-subtitle">Plano Estratégico de Diversificação e Otimização para Metalúrgica de Médio Porte: Transformando Ativos Ociosos em Novas Fontes de Receita e Valor Máximo B2B.</p>
+            
+            <div class="strategy-grid-6">
+                <div class="strategy-card">
+                    <h4>Eixo 1: Monetização Fabril Imediata</h4>
+                    <p>Lançamento de um <strong>Serviço B2B Express de Usinagem e Corte</strong> para pequenas indústrias da região, vendendo horas-máquina ociosas. <strong>Transformação de OPEX em Receita.</strong></p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Eixo 1: E-commerce e Novo Branding</h4>
+                    <p>Criação de linha <strong>premium</strong> de produtos de design (B2C/B2B) para alto valor agregado, otimizando o LTV e a margem bruta com insumos existentes.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Eixo 1: Ataque a Novas Indústrias</h4>
+                    <p>Diversificação para setores estáveis e em crescimento: <strong>Saneamento e Energia Renovável</strong>, usando nossa base metalúrgica e know-how para estruturas e componentes.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Eixo 2: Otimização e Inovação</h4>
+                    <p>Foco em <strong>Manufatura Aditiva e Prototipagem Rápida</strong>, usando ativos fabris para testes de alta complexidade e redução de ciclo de desenvolvimento de produtos.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Eixo 3: Economia Circular</h4>
+                    <p>Criação de Linha de Produtos Secundários. Monetização e reuso do resíduo industrial (metal) transformando o custo de descarte em <strong>Receita do Resíduo</strong>.</p>
+                </div>
+                <div class="strategy-card">
+                    <h4>Eixo 4: Expansão de Mercado</h4>
+                    <p>Desenvolvimento de um <strong>Modelo de Private Label</strong> para Grandes Players do mercado nacional e internacional, garantindo volumes estáveis e previsíveis a longo prazo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reinvecao-industrial">
+        <div class="container">
+            <h2>Reinvenção e Incubação Industrial</h2>
+            <p class="section-subtitle">A meta é que os <strong>novos produtos superem o faturamento dos antigos</strong>, redefinindo o core business através de <strong>"Negócios Dentro do Negócio"</strong> (Corporate Venturing).</p>
+            <div class="reinvention-definition">
+                <p>O conceito de <strong>Incubação Industrial</strong> é usar a estrutura existente (fábrica, RH, capital) para incubar novas linhas de negócios com foco em mercados completamente novos, mas alavancando os ativos atuais.</p>
+            </div>
+            <h3>🌟 Exemplos de Diversificação Transformacional (Quem Fez Primeiro)</h3>
+            <div class="case-study-grid">
+                <div class="case-card">
+                    <h3><i class="fas fa-cube" style="color: var(--secondary-blue);"></i> Desktop Metal: Manufatura Aditiva</h3>
+                    <p>Migração do foco metalomecânico tradicional para a <strong>Impressão 3D de Metal</strong>.</p>
+                    <ul>
+                        <li><i class="fas fa-plus-circle"></i> <strong>Alavancagem:</strong> Know-how em metalurgia e engenharia de materiais.</li>
+                        <li><i class="fas fa-lightbulb result-icon"></i> <strong>Resultado:</strong> Criação de um novo mercado (aeroespacial, médico) com valor agregado exponencialmente maior que a usinagem em série.</li>
+                    </ul>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-robot" style="color: var(--secondary-blue);"></i> Motofil (Portugal): Soluções 4.0</h3>
+                    <p>Evolução da venda de máquinas fabris simples para <strong>soluções de automação robótica</strong> e Indústria 4.0.</p>
+                    <ul>
+                        <li><i class="fas fa-plus-circle"></i> <strong>Alavancagem:</strong> Know-how na construção de máquinas e integração de software e robótica (IIoT).</li>
+                        <li><i class="fas fa-lightbulb result-icon"></i> <strong>Resultado:</strong> Receita migra da venda de um <strong>Produto</strong> (máquina) para a venda de um <strong>Serviço de Integração</strong> (manutenção/tecnologia embarcada).</li>
+                    </ul>
+                </div>
+                <div class="case-card">
+                    <h3><i class="fas fa-wind" style="color: var(--secondary-blue);"></i> Estruturas: O Salto para a Energia</h3>
+                    <p>Transição da produção de tubos/estruturas para O&G ou Construção para <strong>Torres Eólicas e Estruturas Solares</strong>.</p>
+                    <ul>
+                        <li><i class="fas fa-plus-circle"></i> <strong>Alavancagem:</strong> Capacidade de dobra, soldagem de grande formato e controle de qualidade de materiais estruturais.</li>
+                        <li><i class="fas fa-lightbulb result-icon"></i> <strong>Resultado:</strong> Faturamento da divisão de <strong>Energia</strong> (Eólica/Solar) supera o faturamento histórico de setores em declínio.</li>
+                    </ul>
+                </div>
+            </div>
+            <table class="checklist-table">
+                <caption>✅ Checklist Tático do Gestor de Expansão para a Transformação</caption>
+                <thead>
+                    <tr>
+                        <th>Passo</th>
+                        <th>Foco no Ativo/Competência</th>
+                        <th>Ação Tática</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Desconstrução</td>
+                        <td>Competência Central e Ociosa: O que fazemos de melhor e onde há sobra de tempo de máquina?</td>
+                        <td>Mapear as capacidades de máquina para <strong>tolerâncias, materiais e certificações</strong> — não o produto que ela faz hoje.</td>
+                    </tr>
+                    <tr>
+                        <td>2. Conexão</td>
+                        <td>Sinergia de Mercado: Onde essa competência é altamente valorizada, mas o mercado é diferente?</td>
+                        <td>Buscar nichos com alto <strong>custo de falha</strong> (médico, aeroespacial) ou alto crescimento (<strong>energia limpa</strong>).</td>
+                    </tr>
+                    <tr>
+                        <td>3. Prova de Conceito (POC)</td>
+                        <td>Baixo CAPEX: Testar o novo produto/nicho usando a capacidade ociosa atual.</td>
+                        <td>Criar pequenos lotes de teste ou amostras sem interromper a produção principal, alocando a capacidade <strong>ociosa atual</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td>4. Escalabilidade</td>
+                        <td>Novos Canais: Como vender o novo produto fora do canal de vendas atual.</td>
+                        <td>Desenvolver um time de vendas dedicado (<strong>negócio-filho autônomo</strong>) que não concorra com a venda tradicional.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="capacidade-ociosa" style="background-color: var(--light-bg); padding: 40px 0;">
+        <div class="container">
+            <h2>O Ativo Inexplorado: Capacidade Ociosa</h2>
+            <div class="infographic-ociosity">
+                <div class="ociosity-gauge">
+                    <div class="label">60%</div>
+                </div>
+                <p class="ociosity-text">Estimamos que <strong>60%</strong> da minha capacidade de produção está ociosa. Este é o nosso <strong>maior ativo inexplorado</strong>. Meu dever é transformá-lo em <strong>Retorno sobre o Investimento (ROI)</strong>.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pilares-acao">
+        <div class="container">
+            <h2>Os Pilares do Plano de Execução (Seriedade e Coragem)</h2>
+            <p class="section-subtitle">Toda expansão exige um plano estruturado que combine a <strong>Seriedade</strong> da engenharia com a <strong>Vibração</strong> do mercado.</p>
+            
+            <div class="pillar-grid">
+                <div class="pillar-card-3d">
+                    <i class="fas fa-chart-line" style="font-size: 2em; color: var(--secondary-blue); margin-bottom: 10px; display: block;"></i>
+                    <h3>1. Estrutura e Dados (Data-Driven)</h3>
+                    <p>Transformar a gestão do ativo fabril em uma ciência. Mapeamento preciso da ociosidade para venda imediata (B2B Express).</p>
+                    <ul>
+                        <li><i class="fas fa-search"></i> Mapeamento de Ociosidade por Hora-Máquina.</li>
+                        <li><i class="fas fa-handshake"></i> Validação da Demanda: Entrevistar 10 indústrias da região (Usinagem Express).</li>
+                        <li><i class="fas fa-tag"></i> Lançamento do <strong>B2B Express de Usinagem</strong> (Landing Page e Mídia Paga Local).</li>
+                    </ul>
+                    <div class="deliverable">
+                        <i class="fas fa-calendar-check"></i> <strong>Entregável Principal:</strong> Primeiros R$ de Faturamento na nova linha de negócio.
+                    </div>
+                </div>
+
+                <div class="pillar-card-3d">
+                    <h3>FASE 2: INCUBACÃO E VALIDAÇÃO <span>(Dias 31-60)</span></h3>
+                    <p>Estruturar o novo modelo de vendas e iniciar as Provas de Conceito (POCs) para a diversificação setorial de alto valor.</p>
+                    
+                    <strong>Metas Chave:</strong>
+                    <ul>
+                        <li><i class="fas fa-users"></i> Criação da Célula de Vendas <strong>"Negócio-Filho"</strong> (1 Vendedor + 1 Engenheiro).</li>
+                        <li><i class="fas fa-bolt"></i> Início da POC 1: Componente de Estruturas para Energia Renovável.</li>
+                        <li><i class="fas fa-globe"></i> Pesquisa de Private Label: Identificar 3 grandes *players* potenciais (nacional/internacional).</li>
+                    </ul>
+                    <div class="deliverable">
+                        <i class="fas fa-calendar-check"></i> <strong>Entregável Principal:</strong> Relatório de Viabilidade e Margem da POC 1.
+                    </div>
+                </div>
+
+                <div class="pillar-card-3d">
+                    <h3>FASE 3: ESCALA E FUNDAÇÃO <span>(Dias 61-90)</span></h3>
+                    <p>Fase de testes finais para escala. Preparar o negócio para receber investimento e crescimento de longo prazo (Visão 2026).</p>
+                    
+                    <strong>Metas Chave:</strong>
+                    <ul>
+                        <li><i class="fas fa-balance-scale"></i> Projeção de ROI: Definir o ponto de equilíbrio (*Break-even*) do novo negócio B2B Express.</li>
+                        <li><i class="fas fa-recycle"></i> Lançamento da Linha de Receita do Resíduo (Economia Circular).</li>
+                        <li><i class="fas fa-road"></i> Criação do Blueprint de Expansão (documento para atrair investidores/parceiros).</li>
+                    </ul>
+                    <div class="deliverable">
+                        <i class="fas fa-calendar-check"></i> <strong>Entregável Principal:</strong> Plano de Investimento e Crescimento (5 Anos).
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-container pillars-swiper" style="display: none;">
+                <div class="swiper-wrapper"></div>
+                <div class="swiper-button-prev pillars-prev"></div>
+                <div class="swiper-button-next pillars-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="perfil-cristiano" class="solution-section">
+        <div class="container">
+            <h2>O Gestor de Expansão: Cristiano Garcia</h2>
+            <p class="section-subtitle">A experiência necessária para transformar ativos ociosos em novos mercados lucrativos.</p>
+
+            <div class="profile-content-grid">
+
+                <div class="profile-sidebar">
+                    <img src="foto_cristiano.jpg" alt="Foto de Cristiano Garcia" class="cristiano-img">
+                    <h3>Cristiano Garcia</h3>
+                    <p class="role">Gerente Estratégico & Head de Novos Negócios</p>
+                    <blockquote>
+                        "Minha missão é simples: fazer o ativo fabril trabalhar por você. Transformar o custo fixo de ociosidade na alavanca de crescimento da próxima década."
+                    </blockquote>
+                    
+                    <div class="personal-profile-box">
+                        <h4>Características e Interesses Pessoais</h4>
+                        
+                        <div class="personal-profile-item">
+                            <strong><i class="fas fa-balance-scale" style="margin-right: 5px;"></i> Integridade</strong>
+                            <p>Integridade Inegociável: Priorização da decisão ética e da transparência total, fundamentais para a confiabilidade da cadeia de suprimentos e a governança corporativa.</p>
+                        </div>
+                        
+                        <div class="personal-profile-item">
+                            <strong><i class="fas fa-heart" style="margin-right: 5px;"></i> Paixão por Resultados Tangíveis</strong>
+                            <p>Sou movido pela transformação de ativos em valor e pela otimização que resulta em melhoria percentual no OEE (Overall Equipment Effectiveness) e redução de *waste*.</p>
+                        </div>
+                        
+                        <div class="personal-profile-item">
+                            <strong><i class="fas fa-eye" style="margin-right: 5px;"></i> Visão de Engenharia de Valor</strong>
+                            <p>Minha satisfação reside em desconstruir problemas para reconstruir soluções que agregam valor sustentável ao produto e à operação.</p>
+                        </div>
+
+                        <div class="personal-profile-item">
+                            <strong><i class="fas fa-dumbbell" style="margin-right: 5px;"></i> Resiliência Estrutural</strong>
+                            <p>Abordo desafios complexos com a disciplina de um engenheiro, buscando sempre a estrutura mais robusta e duradoura para as soluções.</p>
+                        </div>
+
+                        <div class="personal-profile-item">
+                            <strong><i class="fas fa-brain" style="margin-right: 5px;"></i> Liderança Autoconsciente</strong>
+                            <p>Uso o autoconhecimento para garantir que as emoções não ditem a estratégia e que as decisões sejam baseadas em dados e na visão de longo prazo.</p>
+                        </div>
+
+                    </div>
+                    </div>
+
+                <div class="profile-detail">
+                    
+                    <h4>Métricas Chave de Experiência (KPIs)</h4>
+                    <div class="metrics-grid">
+                        <div class="metric-card int">
+                            <span class="value">+45%</span>
+                            <span class="label">Faturamento Int. (3 Anos)</span>
+                        </div>
+                        <div class="metric-card lead">
+                            <span class="value">>175</span>
+                            <span class="label">Liderança de Equipes</span>
+                        </div>
+                        <div class="metric-card churn">
+                            <span class="value">-22%</span>
+                            <span class="label">Redução de *Churn* (Salesforce)</span>
+                        </div>
+                        <div class="metric-card ltv">
+                            <span class="value">+35%</span>
+                            <span class="label">Aumento de LTV (Estratégia CRM)</span>
+                        </div>
+                    </div>
+
+                    <h4>Expansão de Mercado & Força de Vendas</h4>
+                    <p>Acredito na estruturação de operações eficientes como base para o crescimento acelerado. Em um projeto de expansão, estruturei uma nova filial com 40 vendedores externos, gerando R$ 1,2 Milhão de faturamento em apenas 90 dias.</p>
+
+                    <div class="expansion-case">
+                        <div class="case-kpi">
+                            <span class="value">R$ 1,2M</span>
+                            <span class="label">Faturamento em 90 Dias</span>
+                        </div>
+                        <div class="case-kpi">
+                            <span class="value">4.000</span>
+                            <span class="label">Novos Pontos de Venda (PDVs)</span>
+                        </div>
+                    </div>
+                    
+                    <h4 style="margin-top: 40px; color: var(--primary-dark);">Metodologia: Do Branding à Escala Omnichannel</h4>
+                    <div class="methodology-flow">
+                        <div class="flow-step">
+                            <div class="number">1</div>
+                            <h5>Branding & Lançamento</h5>
+                        </div>
+                        <div class="flow-step">
+                            <div class="number">2</div>
+                            <h5>Digitalização & E-commerce</h5>
+                        </div>
+                        <div class="flow-step">
+                            <div class="number">3</div>
+                            <h5>Performance & Escala</h5>
+                        </div>
+                        <div class="flow-step">
+                            <div class="number">4</div>
+                            <h5>Análise & Otimização</h5>
+                        </div>
+                    </div>
+                    
+                    <div class="core-competencies">
+                        <h4><i class="fas fa-cogs" style="margin-right: 10px; color: var(--accent-orange);"></i>Habilidades Essenciais para o Mandato de Expansão</h4>
+                        <ul>
+                            <li>Gestão de Capacidade Ociosa (Monetização de Ativos)</li>
+                            <li>Modelagem Financeira para Novos Negócios (P&L)</li>
+                            <li>Negociação Estratégica B2B de Longo Ciclo</li>
+                            <li>Liderança de Times de Alta Performance e Inovação</li>
+                            <li>Implementação de Lean Manufacturing & OEE</li>
+                            <li>Criação e Gestão de Canais Digitais (E-commerce/B2B)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tech-focus">
+                        <h4><i class="fas fa-satellite-dish" style="margin-right: 10px;"></i>Visão 4.0: Digitalização do Ativo Fabril</h4>
+                        <p>Experiência na integração de sistemas de chão de fábrica (MES/ERP) e na utilização de dados de OEE para otimizar processos e precificar a venda de horas-máquina ociosas. **Transformação de dados em receita.**</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" style="background-color: var(--primary-dark);">
+        <div class="container" style="color: white;">
+            <h2 style="color: white; margin-bottom: 10px;">O Roteiro de 90 Dias: Execução Urgente</h2>
+            <p class="section-subtitle" style="color: #E0E0E0; max-width: 800px; margin: 0 auto 50px;">Este é o plano de ataque para transformar a ociosidade em lucro, focando no retorno imediato (Asset-Light).</p>
+            
+            <div class="roadmap-grid">
+                
+                <div class="phase-card">
+                    <h3>FASE 1: DIAGNÓSTICO E MONETIZAÇÃO <span>(Dias 0-30)</span></h3>
+                    <p>O foco total é transformar horas-máquina paradas em receita. Criar a primeira nova linha de faturamento B2B.</p>
+                    
+                    <strong>Metas Chave:</strong>
+                    <ul>
+                        <li><i class="fas fa-search"></i> Mapeamento detalhado da Capacidade Ociosa (60% estimado).</li>
+                        <li><i class="fas fa-handshake"></i> Validação da Demanda: Entrevistar 10 indústrias da região (Usinagem Express).</li>
+                        <li><i class="fas fa-tag"></i> Lançamento do <strong>B2B Express de Usinagem</strong> (Landing Page e Mídia Paga Local).</li>
+                    </ul>
+                    <div class="deliverable">
+                        <i class="fas fa-calendar-check"></i> <strong>Entregável Principal:</strong> Primeiros R$ de Faturamento na nova linha de negócio.
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <h3>FASE 2: INCUBACÃO E VALIDAÇÃO <span>(Dias 31-60)</span></h3>
+                    <p>Estruturar o novo modelo de vendas e iniciar as Provas de Conceito (POCs) para a diversificação setorial de alto valor.</p>
+                    
+                    <strong>Metas Chave:</strong>
+                    <ul>
+                        <li><i class="fas fa-users"></i> Criação da Célula de Vendas <strong>"Negócio-Filho"</strong> (1 Vendedor + 1 Engenheiro).</li>
+                        <li><i class="fas fa-bolt"></i> Início da POC 1: Componente de Estruturas para Energia Renovável.</li>
+                        <li><i class="fas fa-globe"></i> Pesquisa de Private Label: Identificar 3 grandes *players* potenciais (nacional/internacional).</li>
+                    </ul>
+                    <div class="deliverable">
+                        <i class="fas fa-calendar-check"></i> <strong>Entregável Principal:</strong> Relatório de Viabilidade e Margem da POC 1.
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <h3>FASE 3: ESCALA E FUNDAÇÃO <span>(Dias 61-90)</span></h3>
+                    <p>Fase de testes finais para escala. Preparar o negócio para receber investimento e crescimento de longo prazo (Visão 2026).</p>
+                    
+                    <strong>Metas Chave:</strong>
+                    <ul>
+                        <li><i class="fas fa-balance-scale"></i> Projeção de ROI: Definir o ponto de equilíbrio (*Break-even*) do novo negócio B2B Express.</li>
+                        <li><i class="fas fa-recycle"></i> Lançamento da Linha de Receita do Resíduo (Economia Circular).</li>
+                        <li><i class="fas fa-road"></i> Criação do Blueprint de Expansão (documento para atrair investidores/parceiros).</li>
+                    </ul>
+                    <div class="deliverable">
+                        <i class="fas fa-calendar-check"></i> <strong>Entregável Principal:</strong> Plano de Investimento e Crescimento (5 Anos).
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="immediate-action">
+                <i class="fas fa-exclamation-triangle" style="color: var(--accent-orange);"></i> 
+                <strong>Ação Imediata:</strong> O sucesso depende da velocidade. O primeiro passo é o <strong>Mapeamento de Capacidade Ociosa</strong> e a definição do preço de venda do serviço B2B Express (Dia 1).
+            </div>
+
+        </div>
+    </section>
+    
+    <section id="decisao-agora" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="decision-box">
+                <h3 style="color: var(--accent-orange);">
+                    <i class="fas fa-calendar-alt" style="margin-right: 15px;"></i>
+                    O TIMING ESTRATÉGICO É AGORA. Convergir a Oportunidade.
+                </h3>
+                <a href="https://wa.me/5551980226044" target="_blank" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> CHAME AGORA AQUI! (Agende 30 Minutos)
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer style="background-color: var(--footer-bg); color: white;">
+        <div class="container" style="text-align: center;">
+            
+            <h3 style="color: var(--accent-orange); margin-bottom: 15px; font-size: 1.3em; font-weight: 800;">Vamos Transformar Ativos Ociosos em Lucro.</h3>
+            
+            <div class="contact-info" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap;">
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp" style="color: var(--success-green); font-size: 1.2em;"></i> 
+                    <a href="https://wa.me/5551980226044" target="_blank" style="color: white; text-decoration: none; margin-left: 5px;" class="footer-text">(51) 98022-6044 (WhatsApp)</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope" style="color: var(--accent-orange); font-size: 1.2em;"></i> 
+                    <a href="mailto:garciacdo@gmail.com" style="color: white; text-decoration: none; margin-left: 5px;" class="footer-text">garciacdo@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin" style="color: var(--secondary-blue); font-size: 1.2em;"></i> 
+                    <a href="https://linkedin.com/in/cristianogarciabr" target="_blank" style="color: white; text-decoration: none; margin-left: 5px;" class="footer-text">linkedin.com/in/cristianogarciabr</a>
+                </div>
+            </div>
+
+            <p style="font-size: 0.85em; font-weight: 600; color: #E0E0E0;" class="footer-text">Estratégia de Expansão e Visão de Mercado | O Caminho para o Crescimento Lucrativo.</p>
+        </div>
+    </footer>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. SWIPER: DESAFIOS (DORES) - Acelerado para 3 segundos (3000ms)
+            const painPointsSwiper = new Swiper('.pain-points-swiper', {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: { delay: 3000, disableOnInteraction: false, },
+                breakpoints: {
+                    0: { slidesPerView: 1, spaceBetween: 20, },
+                    768: { slidesPerView: 2, spaceBetween: 30, },
+                    1024: { slidesPerView: 3, spaceBetween: 30, },
+                },
+                navigation: {
+                    nextEl: '.pain-points-next',
+                    prevEl: '.pain-points-prev',
+                },
+            });
+            // O Swiper dos Pilares foi substituído pela grid
+        });
+    </script>
+
+</body>
+</html>
